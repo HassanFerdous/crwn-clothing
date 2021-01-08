@@ -7,7 +7,11 @@ class HomePage extends React.Component {
 	// }
 
 	render() {
-		return <DirectoryMenu />;
+		return (
+			<div className="home-page">
+				<DirectoryMenu />
+			</div>
+		);
 	}
 }
 
