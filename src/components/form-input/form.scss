@@ -1,0 +1,44 @@
+.form {
+    &-group {
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    &-input {
+        width: 100%;
+        outline: 0;
+        padding: 1rem 1rem;
+        border: 0;
+        border-bottom: 1px solid gray;
+
+        &:focus~.form-label {
+            top: 0;
+            font-size: 12px;
+            color: #000
+        }
+    }
+
+    &-label {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: gray;
+        transition: .2s all;
+    }
+}
+
+
+.sign-in {
+    max-width: 30vw;
+
+    &__title {
+        font-weight: normal;
+        margin-bottom: 2rem;
+    }
+
+    &__subtitle {
+        display: inline-block;
+        margin-bottom: 3rem;
+    }
+}
