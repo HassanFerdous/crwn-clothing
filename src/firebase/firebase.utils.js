@@ -17,6 +17,42 @@ firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
+//setting user databsae and get data form datab base
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+	if (!userAuth) return;
+
+	//userRef Return a promise
+	const userRef = firestore.doc(`users/${userAuth.uid}`);
+	const snapShot = await userRef.get();
+
+	if (!snapShot.exists) {
+		const { displayName, email } = userAuth;
+		const createdAt = new Date();
+		try {
+			await userRef.set({
+				displayName,
+				email,
+				createdAt,
+				...additionalData,
+			});
+		} catch {
+			console.log('error message from snapshot');
+		}
+	}
+	return userRef;
+
+	// const { displayName, email } = userAuth;
+	// const createdAt = new Date();
+	// userRef
+	// 	.set({
+	// 		displayName,
+	// 		email,
+	// 		createdAt,
+	// 		...addtionalData,
+	// 	})
+	// 	.catch((err) => console.log('error message:', err.message));
+};
+
 //For google authentiction utilies
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });

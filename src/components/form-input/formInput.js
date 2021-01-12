@@ -9,16 +9,10 @@ const FormInput = ({ handleChange, label, ...otherProps }) => {
 				onChange={handleChange}
 				name={otherProps.name}
 				type={otherProps.type}
-				id={otherProps.name}
 				value={otherProps.value}
 			/>
 			{label ? (
-				<label
-					className={`${
-						otherProps.value.length ? 'shrink' : null
-					} form-label`}
-					htmlFor={otherProps.name}
-				>
+				<label className={`${otherProps.value.length ? 'shrink' : null} form-label`} htmlFor={otherProps.name}>
 					{label}
 				</label>
 			) : null}

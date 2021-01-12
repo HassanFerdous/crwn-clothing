@@ -4,13 +4,13 @@
     height: 50px;
     letter-spacing: 0.5px;
     line-height: 50px;
-    padding: 0 35px 0 35px;
+    padding: 0 20px 0 35px;
     font-size: 15px;
     background-color: black;
     color: white;
     text-transform: uppercase;
     font-family: 'Open Sans';
-    font-weight: bolder;
+    font-weight: normal;
     border: none;
     cursor: pointer;
     border: 1px solid transparent;
@@ -20,4 +20,18 @@
         color: black;
         border: 1px solid black;
     }
+
+    &.google-login {
+        color: #fff;
+        background: #4285f4;
+        border: 1px solid #4285f4;
+        margin-left: 2rem;
+
+        &:hover {
+            background: #2364ce;
+            border: 1px solid #2364ce;
+        }
+
+    }
+
 }

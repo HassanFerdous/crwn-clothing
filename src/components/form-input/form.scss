@@ -25,20 +25,13 @@
         transform: translateY(-50%);
         color: gray;
         transition: .2s all;
+
+
     }
 }
 
-
-.sign-in {
-    max-width: 30vw;
-
-    &__title {
-        font-weight: normal;
-        margin-bottom: 2rem;
-    }
-
-    &__subtitle {
-        display: inline-block;
-        margin-bottom: 3rem;
-    }
+.shrink.form-label {
+    top: 0;
+    font-size: 12px;
+    color: #000
 }
