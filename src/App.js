@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import HomePage from './pages/home-page/HomePage';
 import Shop from './pages/shop/Shop';
 import Header from './components/header/Header';
@@ -43,8 +43,12 @@ class App extends Component {
 				<Switch>
 					<Route exact path="/" component={HomePage} />
 					<Route exact path="/shop" component={Shop} />
-					<Route exact path="/signin" component={SingInSignUp} />
 					<Route exact path="/contact" component={Contact} />
+					<Route
+						exact
+						path="/signin"
+						render={() => (this.props.currentUser ? <Redirect to="/" /> : <SingInSignUp />)}
+					/>
 				</Switch>
 			</div>
 		);
@@ -55,4 +59,8 @@ const mapDispatchToProps = dispatch => ({
 	setCurrrentUser: user => dispatch(setCurrrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateTopProps = state => ({
+	currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateTopProps, mapDispatchToProps)(App);

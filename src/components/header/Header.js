@@ -34,7 +34,6 @@ const Header = ({ currentUser }) => (
 
 const mapStateToProps = state => ({
 	currentUser: state.user.currentUser,
-	tree: state,
 });
 
 export default connect(mapStateToProps)(Header);
