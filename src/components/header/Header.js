@@ -10,6 +10,8 @@ const Header = ({ currentUser }) => (
 		<Link to="/">
 			<Logo />
 		</Link>
+		{console.log(currentUser)}
+		{/* {currentUser ? console.log(currentUser) : console.log('false')} */}
 		<nav className="header__nav">
 			<Link to="/shop" className="header__nav-link">
 				Shop
@@ -32,6 +34,7 @@ const Header = ({ currentUser }) => (
 
 const mapStateToProps = state => ({
 	currentUser: state.user.currentUser,
+	tree: state,
 });
 
 export default connect(mapStateToProps)(Header);
