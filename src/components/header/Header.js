@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../images/crown.svg';
 import './header.scss';
+import CartIcon from '../cart-icon/CartIcon';
+import CartDropdown from '../cart-dropdown/CartDropdown';
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
 	<div className="header">
 		<Link to="/">
 			<Logo />
 		</Link>
-		{console.log(currentUser)}
+		{/* {console.log(currentUser)} */}
 		{/* {currentUser ? console.log(currentUser) : console.log('false')} */}
 		<nav className="header__nav">
 			<Link to="/shop" className="header__nav-link">
@@ -28,12 +30,15 @@ const Header = ({ currentUser }) => (
 					Sign In
 				</Link>
 			)}
+			<CartIcon />
 		</nav>
+		{hidden ? null : <CartDropdown />}
 	</div>
 );
 
 const mapStateToProps = state => ({
 	currentUser: state.user.currentUser,
+	hidden: state.cart.hidden,
 });
 
 export default connect(mapStateToProps)(Header);
