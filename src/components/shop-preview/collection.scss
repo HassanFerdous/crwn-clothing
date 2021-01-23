@@ -6,8 +6,13 @@
     }
 
     &-item {
+        position: relative;
         flex: 1;
         height: 36rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
         &:not(:last-child) {
             margin-right: .7rem;
@@ -18,6 +23,25 @@
             background-position: center center;
             width: 100%;
             height: 90%;
+        }
+
+        .custom-button {
+            position: absolute;
+            width: 80%;
+            top: 25.5rem;
+            display: none;
+        }
+
+        &:hover {
+
+            .collection-item__bg {
+                opacity: .8;
+            }
+
+            .custom-button {
+                display: flex;
+                opacity: .85;
+            }
         }
     }
 
@@ -30,6 +54,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        width: 100%;
         padding: 0 1rem;
         height: 10%;
 
