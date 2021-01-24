@@ -11,6 +11,8 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import Contact from './pages/contact/contact';
 import { connect } from 'react-redux';
 import { setCurrrentUser } from './redux/user/use.actions';
+import { selectCurrentUser } from './redux/user/userSelectors';
+import Checkout from './pages/checkout/Checkout';
 
 class App extends Component {
 	unsubscribeFormAuth = null;
@@ -42,7 +44,8 @@ class App extends Component {
 				<Header />
 				<Switch>
 					<Route exact path="/" component={HomePage} />
-					<Route exact path="/shop" component={Shop} />
+					<Route path="/shop" component={Shop} />
+					<Route exact path="/checkout" component={Checkout} />
 					<Route exact path="/contact" component={Contact} />
 					<Route
 						exact
@@ -60,7 +63,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateTopProps = state => ({
-	currentUser: state.user.currentUser,
+	currentUser: selectCurrentUser(state),
 });
 
 export default connect(mapStateTopProps, mapDispatchToProps)(App);

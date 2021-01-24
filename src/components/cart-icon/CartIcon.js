@@ -3,6 +3,9 @@ import './cart-icon.scss';
 import { ReactComponent as ShoppingBagIcon } from '../../images/shopping-bag.svg';
 import { connect } from 'react-redux';
 // import CartActionTypes from '../../redux/cart/cart.actionTypes';
+
+import { createStructuredSelector } from 'reselect';
+
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { selectCartItemsCount } from '../../redux/cart/cartSelectors';
 
@@ -19,8 +22,10 @@ const mapDispatchToProps = dispatch => ({
 
 //It's called selector in redux
 // itemCount: state.cart.cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.quantity, 0),
-const mapStateTopProps = state => ({
-	itemCount: selectCartItemsCount(state),
+
+//createStructuredSelector takes top label state by defualt
+const mapStateTopProps = createStructuredSelector({
+	itemCount: selectCartItemsCount,
 });
 
 export default connect(mapStateTopProps, mapDispatchToProps)(CartIcon);

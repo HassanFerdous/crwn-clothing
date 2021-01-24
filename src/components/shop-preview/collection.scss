@@ -14,10 +14,6 @@
         justify-content: center;
         flex-direction: column;
 
-        &:not(:last-child) {
-            margin-right: .7rem;
-        }
-
         &__bg {
             background-size: cover;
             background-position: center center;
@@ -46,7 +42,9 @@
     }
 
     &__wrapper {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 0 1rem;
         align-items: center;
     }
 
