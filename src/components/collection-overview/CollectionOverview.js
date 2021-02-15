@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import './collection-overview.scss';
 
 const CollectionOverview = ({ collections }) => {
+	collections.forEach(collection => console.log(collection));
 	return (
 		<div className="collection-overview">
 			{collections.map(({ id, ...otherCollectionProps }) => (
