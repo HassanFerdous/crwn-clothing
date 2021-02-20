@@ -1,8 +1,8 @@
 // import SHOP_DATA from '../../pages/shop/shopData';
 
 const INNITIAL_STATE = {
-	collections: {
-		hats: {
+	collections: [
+		{
 			id: 1,
 			title: 'Hats',
 			routeName: 'hats',
@@ -63,7 +63,7 @@ const INNITIAL_STATE = {
 				},
 			],
 		},
-		sneakers: {
+		{
 			id: 2,
 			title: 'Sneakers',
 			routeName: 'sneakers',
@@ -118,7 +118,7 @@ const INNITIAL_STATE = {
 				},
 			],
 		},
-		jackets: {
+		{
 			id: 3,
 			title: 'Jackets',
 			routeName: 'jackets',
@@ -155,7 +155,7 @@ const INNITIAL_STATE = {
 				},
 			],
 		},
-		womens: {
+		{
 			id: 4,
 			title: 'Womens',
 			routeName: 'womens',
@@ -204,7 +204,7 @@ const INNITIAL_STATE = {
 				},
 			],
 		},
-		mens: {
+		{
 			id: 5,
 			title: 'Mens',
 			routeName: 'mens',
@@ -247,7 +247,7 @@ const INNITIAL_STATE = {
 				},
 			],
 		},
-	},
+	],
 };
 
 const collectionReducer = (state = INNITIAL_STATE, action) => {

@@ -1,4 +1,4 @@
-const INITIAL_STAE = {
+const INNITIAL_STATE = {
 	sections: [
 		{
 			title: 'hats',
@@ -35,7 +35,7 @@ const INITIAL_STAE = {
 	],
 };
 
-const directoryReducer = (state = INITIAL_STAE, action) => {
+const directoryReducer = (state = INNITIAL_STATE, action) => {
 	switch (action.type) {
 		default:
 			return state;
